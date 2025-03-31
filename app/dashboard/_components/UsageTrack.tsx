@@ -39,7 +39,7 @@ function UsageTrack() {
       .select()
       .from(AIOutput)
       .where(eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
-
+    console.log(result);
     GetTotalUsage(result);
   };
 
