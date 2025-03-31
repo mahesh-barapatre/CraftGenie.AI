@@ -26,7 +26,9 @@ async function History() {
   const HistoryList: HISTORY[] = await db
     .select()
     .from(AIOutput)
-    .where(eq(AIOutput?.createdBy, user?.primaryEmailAddress?.emailAddress))
+    .where(
+      eq(AIOutput?.createdBy, user?.primaryEmailAddress?.emailAddress as string)
+    )
     .orderBy(desc(AIOutput.id));
   const GetTemplateName = (slug: string | null) => {
     const template: TEMPLATE | any = Templates?.find(
